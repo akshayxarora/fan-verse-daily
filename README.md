@@ -312,9 +312,6 @@ Inject custom code at three locations:
 - **Body**: After `<body>`
 - **Footer**: Before `</body>`
 
-Useful for:
-- Analytics scripts
-- Custom tracking
 
 
 ## Troubleshooting
