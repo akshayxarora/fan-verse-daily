@@ -25,6 +25,10 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: '/',
     },
+    icons: {
+      icon: '/icon.svg',
+      apple: '/icon.svg',
+    },
     openGraph: {
       type: 'website',
       title: 'MarketingWithVibes | Engineering-First GTM Platform',
