@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const siteUrl = process.env.VITE_SITE_URL || 'https://marketingwithvibes.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
 
   return {
     title: post.seoTitle || post.title,
@@ -58,7 +58,7 @@ export default async function PostPage({ params }: PageProps) {
     notFound();
   }
 
-  const siteUrl = process.env.VITE_SITE_URL || 'https://marketingwithvibes.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
   const siteConfig = {
     title: 'Marketing With Vibes',
     description: 'GTM Engineering Blog and Resources',

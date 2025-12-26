@@ -3,7 +3,7 @@
 
 // Support both Vite (import.meta.env) and Next.js (process.env)
 const API_BASE_URL = typeof window !== 'undefined' 
-  ? (import.meta.env?.VITE_API_URL || '/api')
+  ? (import.meta.env?.NEXT_PUBLIC_API_URL || '/api')
   : (process.env.NEXT_PUBLIC_API_URL || '/api');
 
 export class ApiError extends Error {

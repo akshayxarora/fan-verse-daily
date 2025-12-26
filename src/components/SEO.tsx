@@ -32,7 +32,7 @@ export default function SEO({
   const defaultSiteConfig = {
     title: 'Marketing With Vibes',
     description: 'GTM Engineering Blog and Resources',
-    url: import.meta.env.VITE_SITE_URL || 'https://marketingwithvibes.com',
+    url: import.meta.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com',
     author: 'Marketing With Vibes',
     ...siteConfig,
   };

@@ -12,7 +12,7 @@ const nextConfig = {
   },
   // Environment variables
   env: {
-    VITE_SITE_URL: process.env.VITE_SITE_URL || 'https://marketingwithvibes.com',
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com',
   },
   // Output configuration
   output: 'standalone',

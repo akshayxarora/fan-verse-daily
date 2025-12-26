@@ -52,7 +52,7 @@ cp env.example .env
 Edit `.env` with your configuration:
 ```env
 # Site Configuration
-VITE_SITE_URL=https://marketingwithvibes.com
+NEXT_PUBLIC_SITE_URL=https://marketingwithvibes.com
 NEXT_PUBLIC_API_URL=/api
 
 # Database (NeonDB)
@@ -290,7 +290,7 @@ Set these in your Vercel project settings:
 - `RESEND_FROM_EMAIL`
 - `JWT_SECRET`
 - `SESSION_SECRET`
-- `VITE_SITE_URL`
+- `NEXT_PUBLIC_SITE_URL`
 
 ## Customization
 

@@ -57,7 +57,7 @@ export async function sendPostUpdateNotification(
     url: string;
   }
 ) {
-  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || import.meta.env?.VITE_SITE_URL || 'https://marketingwithvibes.com';
+  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || import.meta.env?.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
   
   const body = `
     <p>We've just published a new post on the GTM Engineering blog: <strong>${post.title}</strong></p>
@@ -83,7 +83,7 @@ export async function sendPostUpdateNotification(
  * Send welcome email to new subscriber
  */
 export async function sendWelcomeEmail(email: string) {
-  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || import.meta.env?.VITE_SITE_URL || 'https://marketingwithvibes.com';
+  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || import.meta.env?.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
   
   const body = `
     <p>Thanks for subscribing to the Marketing With Vibes newsletter!</p>

@@ -9,7 +9,7 @@ export function getNewsletterTemplate(content: {
   ctaUrl?: string;
   unsubscribeUrl?: string;
 }) {
-  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.VITE_SITE_URL || 'https://marketingwithvibes.com';
+  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
   const logoHTML = getEmailLogoHTML(36);
   
   return `

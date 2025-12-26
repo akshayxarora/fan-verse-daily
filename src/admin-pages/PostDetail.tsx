@@ -12,7 +12,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export default function PostDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://marketingwithvibes.com';
+  const siteUrl = import.meta.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
   
   // Determine post type from URL path
   const pathname = window.location.pathname;
