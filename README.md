@@ -265,6 +265,8 @@ Access the admin panel at `/admin` (requires login at `/login`).
 
 ## Deployment
 
+This project is optimized for deployment on Vercel.
+
 ### Vercel Deployment
 
 1. Push your code to GitHub
