@@ -43,7 +43,10 @@ export default function AdminSettings() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ newPassword: data.newPassword }),
+        body: JSON.stringify({ 
+          oldPassword: data.currentPassword,
+          newPassword: data.newPassword 
+        }),
       });
 
       if (!response.ok) {
