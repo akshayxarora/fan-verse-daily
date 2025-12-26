@@ -305,14 +305,6 @@ Create custom themes in the admin panel:
 4. Configure CSS variables
 5. Activate the theme
 
-### Code Injection
-
-Inject custom code at three locations:
-- **Head**: Before `</head>`
-- **Body**: After `<body>`
-- **Footer**: Before `</body>`
-
-
 
 ## Troubleshooting
 
