@@ -1,13 +1,12 @@
+'use client';
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "Playbooks", href: "/playbooks" },
-  { label: "Systems", href: "/systems" },
-  { label: "Tools", href: "/tools" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ];
@@ -20,7 +19,7 @@ const Navigation = () => {
       <div className="container px-4 md:px-6">
         <nav className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
               <Terminal className="w-4 h-4 text-primary-foreground" />
             </div>
@@ -34,7 +33,7 @@ const Navigation = () => {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                to={link.href}
+                href={link.href}
                 className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-secondary/50"
               >
                 {link.label}
@@ -42,15 +41,7 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Desktop CTAs */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="sm">
-              Log in
-            </Button>
-            <Button variant="default" size="sm">
-              Get Started
-            </Button>
-          </div>
+          {/* Desktop CTAs - Removed admin button for public */}
 
           {/* Mobile Menu Toggle */}
           <button
@@ -76,21 +67,13 @@ const Navigation = () => {
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
-                    to={link.href}
+                    href={link.href}
                     onClick={() => setIsOpen(false)}
                     className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-md transition-colors"
                   >
                     {link.label}
                   </Link>
                 ))}
-                <div className="pt-4 px-4 space-y-2">
-                  <Button variant="outline" className="w-full">
-                    Log in
-                  </Button>
-                  <Button variant="default" className="w-full">
-                    Get Started
-                  </Button>
-                </div>
               </div>
             </motion.div>
           )}

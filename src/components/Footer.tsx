@@ -1,35 +1,49 @@
-import { Link } from "react-router-dom";
+'use client';
+
+import Link from "next/link";
 import { Terminal, Github, Twitter, Linkedin } from "lucide-react";
+import { useQuery } from '@tanstack/react-query';
+import { settingsApi } from '@/lib/api/client';
+import { useEffect, useState } from 'react';
 
 const footerLinks = {
   product: [
-    { label: "Playbooks", href: "/playbooks" },
-    { label: "Systems", href: "/systems" },
-    { label: "Tools", href: "/tools" },
-    { label: "Pricing", href: "/pricing" },
+    { label: "My LinkedIn", href: "https://www.linkedin.com/in/kuldeep-paul/" },
   ],
   resources: [
     { label: "Blog", href: "/blog" },
-    { label: "Documentation", href: "/docs" },
-    { label: "Changelog", href: "/changelog" },
-    { label: "Status", href: "/status" },
   ],
   company: [
     { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
-    { label: "Terms", href: "/terms" },
-    { label: "Privacy", href: "/privacy" },
   ],
 };
 
 const Footer = () => {
+  const [mounted, setMounted] = useState(false);
+  const { data: settingsData } = useQuery({
+    queryKey: ['settings'],
+    queryFn: () => settingsApi.getAll(),
+  });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const settings = Array.isArray(settingsData) 
+    ? settingsData.reduce((acc: any, s: any) => ({ ...acc, [s.key]: s.value }), {})
+    : {};
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <footer className="border-t border-border bg-card">
       <div className="container px-4 md:px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
                 <Terminal className="w-4 h-4 text-primary-foreground" />
               </div>
@@ -38,7 +52,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground mb-6 max-w-xs">
-              Engineering-first GTM systems for AI-native startups.
+              {settings['footer_description'] || 'Building reliable GTM strategies powered by AI and Data-Driven Decisions.'}
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -70,12 +84,12 @@ const Footer = () => {
 
           {/* Product Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4 text-sm">Product</h4>
+            <h4 className="font-semibold text-foreground mb-4 text-sm">Links</h4>
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
@@ -92,7 +106,7 @@ const Footer = () => {
               {footerLinks.resources.map((link) => (
                 <li key={link.href}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
@@ -109,7 +123,7 @@ const Footer = () => {
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
