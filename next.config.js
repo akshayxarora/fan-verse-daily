@@ -1,20 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Keep existing API routes working
-  async rewrites() {
-    return [
+  images: {
+    remotePatterns: [
       {
-        source: '/api/:path*',
-        destination: '/api/:path*',
+        protocol: 'https',
+        hostname: '**.storage.dev',
       },
-    ];
+    ],
   },
-  // Environment variables
-  env: {
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com',
-  },
-  // Output configuration
+  // Output configuration for faster Vercel deployments
   output: 'standalone',
 };
 
