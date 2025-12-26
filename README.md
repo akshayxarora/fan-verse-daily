@@ -315,8 +315,7 @@ Inject custom code at three locations:
 Useful for:
 - Analytics scripts
 - Custom tracking
-- Third-party integrations
-- Custom styling
+
 
 ## Troubleshooting
 
