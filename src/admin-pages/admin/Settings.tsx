@@ -20,10 +20,15 @@ export default function AdminSettings() {
 
   const updatePasswordMutation = useMutation({
     mutationFn: async (data: { currentPassword: string; newPassword: string }) => {
+      const token = localStorage.getItem('auth_token');
+      
       // Verify current password
       const verifyResponse = await fetch('/api/auth/verify-password', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({ password: data.currentPassword }),
       });
 
@@ -34,7 +39,10 @@ export default function AdminSettings() {
       // Update password
       const response = await fetch('/api/auth/update-password', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({ newPassword: data.newPassword }),
       });
 
