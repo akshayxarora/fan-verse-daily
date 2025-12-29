@@ -1,4 +1,4 @@
-# Marketing With Vibes - GTM Engineering Blog & CMS
+# Marketing With Vibes - GTM Engineering Blog and CMS
 
 A high-performance, Ghost-inspired blog and CMS platform built for GTM engineers. Built with Next.js, TypeScript, and deployed on Vercel with NeonDB and Tigris.
 
