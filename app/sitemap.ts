@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { postsApiServer } from '@/lib/api/server';
 
+export const revalidate = 60; // Revalidate sitemap every 60 seconds
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://marketingwithvibes.com';
 
