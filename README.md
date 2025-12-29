@@ -303,7 +303,6 @@ Create custom themes in the admin panel:
 2. Create a new theme
 3. Add custom CSS/JS
 4. Configure CSS variables
-5. Activate the theme
 
 
 ## Troubleshooting
