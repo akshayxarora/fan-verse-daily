@@ -30,10 +30,10 @@ export default function SEO({
   siteConfig,
 }: SEOProps) {
   const defaultSiteConfig = {
-    title: 'Marketing With Vibes',
+    title: 'FanverseDaily',
     description: 'GTM Engineering Blog and Resources',
-    url: import.meta.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com',
-    author: 'Marketing With Vibes',
+    url: import.meta.env.NEXT_PUBLIC_SITE_URL || 'https://fanversedaily.com',
+    author: 'FanverseDaily',
     ...siteConfig,
   };
 

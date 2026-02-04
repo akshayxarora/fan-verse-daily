@@ -135,7 +135,7 @@ export async function POST(request: NextRequest) {
       htmlContent = content || '';
     }
     
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://marketingwithvibes.com';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://fanversedaily.com';
     const isPublishing = status === 'published';
     
     const sql = `

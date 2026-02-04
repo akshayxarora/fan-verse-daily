@@ -10,7 +10,7 @@ export const revalidate = 60; // Revalidate every 60 seconds
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await settingsApiServer.getAll();
-  const title = settings['blog_seo_title'] || 'Blog | MarketingWithVibes';
+  const title = settings['blog_seo_title'] || 'Blog | FanverseDaily';
   const description = settings['blog_meta_description'] || 'Technical deep-dives and research on GTM engineering.';
   
   return {

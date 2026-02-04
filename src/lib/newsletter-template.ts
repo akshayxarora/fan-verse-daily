@@ -9,7 +9,7 @@ export function getNewsletterTemplate(content: {
   ctaUrl?: string;
   unsubscribeUrl?: string;
 }) {
-  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
+  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://fanversedaily.com';
   const logoHTML = getEmailLogoHTML(36);
   
   return `
@@ -142,7 +142,7 @@ export function getNewsletterTemplate(content: {
             </tr>
             <tr>
               <td class="footer">
-                <p>&copy; ${new Date().getFullYear()} Marketing With Vibes. All rights reserved.</p>
+                <p>&copy; ${new Date().getFullYear()} FanverseDaily. All rights reserved.</p>
                 <p>GTM Engineering Blog • technical deep-dives and systems breakdowns.</p>
                 ${content.unsubscribeUrl ? `
                   <p><a href="${content.unsubscribeUrl}">Unsubscribe</a> from this newsletter</p>

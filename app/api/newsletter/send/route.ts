@@ -38,11 +38,11 @@ const isValidEmail = (email: string) => {
 async function sendNewsletterEmail({ to, subject, html, from }: any) {
   const resend = new Resend(process.env.RESEND_API_KEY || '');
   
-  let actualFrom = from || process.env.RESEND_FROM_EMAIL || 'MarketingWithVibes <newsletter@marketingwithvibes.com>';
+  let actualFrom = from || process.env.RESEND_FROM_EMAIL || 'FanverseDaily <newsletter@fanversedaily.com>';
   
   // Ensure from has the proper format "Name <email@domain.com>"
   if (!actualFrom.includes('<')) {
-    actualFrom = `MarketingWithVibes <${actualFrom}>`;
+    actualFrom = `FanverseDaily <${actualFrom}>`;
   }
   
   let usedTestDomain = false;
@@ -52,9 +52,9 @@ async function sendNewsletterEmail({ to, subject, html, from }: any) {
   const emailMatch = actualFrom.match(/<(.+)>|(\S+@\S+)/);
   const emailOnly = emailMatch ? (emailMatch[1] || emailMatch[2]) : actualFrom;
 
-  if (emailOnly && !emailOnly.endsWith('@marketingwithvibes.com')) {
-    if (Array.isArray(to) && to.length === 1 && isValidEmail(to[0])) { 
-      actualFrom = 'MarketingWithVibes <onboarding@resend.dev>';
+  if (emailOnly && !emailOnly.endsWith('@fanversedaily.com')) {
+    if (Array.isArray(to) && to.length === 1 && isValidEmail(to[0])) {
+      actualFrom = 'FanverseDaily <onboarding@resend.dev>';
       usedTestDomain = true;
     }
   }

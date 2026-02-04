@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About | MarketingWithVibes',
-  description: 'GTM engineer and product-led growth practitioner focusing on building leverage through systems.',
+  title: 'About | FanverseDaily',
+  description: 'Learn about FanverseDaily - your ultimate source for entertainment news covering Gaming, Movies, TV, Anime and Pop Culture.',
   alternates: {
     canonical: '/about',
   },
@@ -32,7 +32,7 @@ export default function AboutPage() {
         </p> */}
 
         <p className="text-foreground mb-6">
-          <strong>MarketingWithVibes</strong> is a personal headspace where I think, write, and
+          <strong>FanverseDaily</strong> is a personal headspace where I think, write, and
           document how modern go-to-market systems are actually built - with
           code, automation, data, and leverage.
         </p>

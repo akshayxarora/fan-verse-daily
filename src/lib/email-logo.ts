@@ -1,4 +1,4 @@
-// MarketingWithVibes logo for emails
+// FanverseDaily logo for emails
 // Logo: Terminal icon in rounded square with primary color background
 
 export const getEmailLogo = () => {
@@ -32,7 +32,7 @@ export const getEmailLogoHTML = (size: number = 32) => {
           </table>
         </td>
         <td style="vertical-align: middle;">
-          <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 700; font-size: ${size * 0.7}px; color: #f0f6fc; letter-spacing: -0.5px; white-space: nowrap;">MarketingWithVibes</span>
+          <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 700; font-size: ${size * 0.7}px; color: #f0f6fc; letter-spacing: -0.5px; white-space: nowrap;">FanverseDaily</span>
         </td>
       </tr>
     </table>

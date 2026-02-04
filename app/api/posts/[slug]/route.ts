@@ -136,7 +136,7 @@ export async function PUT(
       htmlContent = content || '';
     }
     
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://marketingwithvibes.com';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://fanversedaily.com';
     
     // Check if post was previously published
     // Support finding by slug or ID

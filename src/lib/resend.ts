@@ -21,11 +21,11 @@ export async function sendNewsletterEmail({
   to,
   subject,
   html,
-  from = process.env.RESEND_FROM_EMAIL || 'MarketingWithVibes <newsletter@marketingwithvibes.com>',
+  from = process.env.RESEND_FROM_EMAIL || 'FanverseDaily <newsletter@fanversedaily.com>',
 }: NewsletterEmail) {
   try {
     // Ensure from has the proper format "Name <email@domain.com>"
-    const formattedFrom = from.includes('<') ? from : `MarketingWithVibes <${from}>`;
+    const formattedFrom = from.includes('<') ? from : `FanverseDaily <${from}>`;
 
     const { data, error } = await resend.emails.send({
       from: formattedFrom,
@@ -57,7 +57,7 @@ export async function sendPostUpdateNotification(
     url: string;
   }
 ) {
-  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || import.meta.env?.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
+  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || import.meta.env?.NEXT_PUBLIC_SITE_URL || 'https://fanversedaily.com';
   
   const body = `
     <p>We've just published a new post on the GTM Engineering blog: <strong>${post.title}</strong></p>
@@ -83,10 +83,10 @@ export async function sendPostUpdateNotification(
  * Send welcome email to new subscriber
  */
 export async function sendWelcomeEmail(email: string) {
-  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || import.meta.env?.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
+  const siteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || import.meta.env?.NEXT_PUBLIC_SITE_URL || 'https://fanversedaily.com';
   
   const body = `
-    <p>Thanks for subscribing to the Marketing With Vibes newsletter!</p>
+    <p>Thanks for subscribing to the FanverseDaily newsletter!</p>
     <p>You'll receive updates about new posts, GTM engineering insights, systems breakdowns, and technical deep-dives.</p>
     <p>Stay tuned for our next deep-dive!</p>
   `;
@@ -100,7 +100,7 @@ export async function sendWelcomeEmail(email: string) {
 
   return sendNewsletterEmail({
     to: [email],
-    subject: 'Welcome to Marketing With Vibes',
+    subject: 'Welcome to FanverseDaily',
     html,
   });
 }

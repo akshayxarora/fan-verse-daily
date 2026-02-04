@@ -16,6 +16,15 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontWeight: {
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extrabold: '800',
+        black: '900',
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,7 +70,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Custom semantic tokens
+        // Custom semantic tokens - FanverseDaily
         surface: {
           elevated: "hsl(var(--surface-elevated))",
           overlay: "hsl(var(--surface-overlay))",
@@ -70,14 +79,17 @@ export default {
           primary: "hsl(var(--glow-primary))",
           secondary: "hsl(var(--glow-secondary))",
         },
-        terminal: {
-          green: "hsl(var(--terminal-green))",
-        },
+        // Accent blue for category tags
+        "accent-blue": "hsl(var(--accent-blue))",
+        // Headline color
+        "headline-dark": "hsl(var(--headline-dark))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "1rem",
+        "2xl": "1.5rem",
       },
       keyframes: {
         "accordion-down": {
