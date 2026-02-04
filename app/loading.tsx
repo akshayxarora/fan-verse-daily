@@ -1,5 +1,12 @@
 'use client';
 
+// FanverseDaily Logo SVG
+const FanverseLogo = () => (
+  <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-primary">
+    <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" />
+  </svg>
+);
+
 export default function RootLoading() {
   return (
     <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background">
@@ -9,26 +16,26 @@ export default function RootLoading() {
       </div>
 
       <div className="flex flex-col items-center gap-6">
-        <div className="relative h-20 w-20">
+        <div className="relative h-20 w-20 flex items-center justify-center">
           {/* Pulsing glow background */}
-          <div className="absolute inset-[-10px] rounded-full bg-primary/5 animate-pulse blur-xl"></div>
-          
+          <div className="absolute inset-[-10px] rounded-full bg-primary/10 animate-pulse blur-xl"></div>
+
           {/* Main outer ring */}
           <div className="absolute inset-0 rounded-full border-4 border-primary/10"></div>
-          
-          {/* Spinning core */}
-          <div className="absolute inset-0 animate-spin rounded-full border-4 border-primary border-t-transparent shadow-[0_0_20px_rgba(45,212,191,0.3)]"></div>
-          
-          {/* Inner static icon or dot */}
-          <div className="absolute inset-[35%] rounded-full bg-primary animate-pulse"></div>
+
+          {/* Spinning ring */}
+          <div className="absolute inset-0 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+
+          {/* Center logo */}
+          <FanverseLogo />
         </div>
-        
+
         <div className="space-y-2 text-center">
-          <p className="font-mono text-sm tracking-[0.3em] text-primary uppercase animate-pulse">
-            Establishing Connection
+          <p className="text-xl font-black tracking-tight text-primary uppercase animate-pulse">
+            FanverseDaily
           </p>
-          <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest opacity-50">
-            Fetching Data Fragments
+          <p className="text-xs text-muted-foreground uppercase tracking-widest">
+            Loading the latest stories...
           </p>
         </div>
       </div>

@@ -13,13 +13,15 @@ interface NewsletterFormProps {
   className?: string;
   title?: string;
   description?: string;
+  variant?: 'default' | 'compact';
 }
 
-export default function NewsletterForm({ 
-  source = 'blog', 
+export default function NewsletterForm({
+  source = 'blog',
   className = '',
   title,
-  description
+  description,
+  variant = 'default'
 }: NewsletterFormProps) {
   const [email, setEmail] = useState('');
 
@@ -43,6 +45,30 @@ export default function NewsletterForm({
     subscribeMutation.mutate();
   };
 
+  // Compact variant for sidebar (white on red background)
+  if (variant === 'compact') {
+    return (
+      <form onSubmit={handleSubmit} className={`flex flex-col gap-3 ${className}`}>
+        <input
+          type="email"
+          placeholder="email@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          disabled={subscribeMutation.isPending}
+          className="bg-white/20 border border-white/20 rounded-lg text-sm placeholder:text-white/60 focus:ring-0 focus:border-white/40 text-white px-4 py-2"
+        />
+        <button
+          type="submit"
+          disabled={subscribeMutation.isPending}
+          className="bg-white text-primary font-bold py-2 rounded-lg text-sm hover:bg-gray-100 transition-colors disabled:opacity-50"
+        >
+          {subscribeMutation.isPending ? 'Signing up...' : 'Sign Up'}
+        </button>
+      </form>
+    );
+  }
+
+  // Default variant
   return (
     <div className={className}>
       {title && <h2 className="text-2xl font-bold mb-2">{title}</h2>}
@@ -63,4 +89,3 @@ export default function NewsletterForm({
     </div>
   );
 }
-

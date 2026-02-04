@@ -13,15 +13,15 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await settingsApiServer.getAll();
-  const description = settings['site_meta_description'] || 'Building reliable GTM strategies powered by AI and Data-Driven Decisions.';
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marketingwithvibes.com';
-  
+  const description = settings['site_meta_description'] || 'Your ultimate source for entertainment news - Gaming, Movies, TV, Anime & Pop Culture.';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fanversedaily.com';
+
   return {
     metadataBase: new URL(siteUrl),
-    title: 'MarketingWithVibes | Engineering-First GTM Platform',
+    title: 'FanverseDaily | Entertainment News for Fans',
     description,
-    keywords: 'GTM, go-to-market, growth engineering, AI startups, automation, playbooks, marketing tools',
-    authors: [{ name: 'MarketingWithVibes' }],
+    keywords: 'gaming news, movie news, TV shows, anime, entertainment, pop culture, gaming, movies, wrestling',
+    authors: [{ name: 'FanverseDaily' }],
     alternates: {
       canonical: '/',
     },
@@ -31,13 +31,13 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       type: 'website',
-      title: 'MarketingWithVibes | Engineering-First GTM Platform',
+      title: 'FanverseDaily | Entertainment News for Fans',
       description,
       url: siteUrl,
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'MarketingWithVibes | Engineering-First GTM Platform',
+      title: 'FanverseDaily | Entertainment News for Fans',
       description,
     },
   };
