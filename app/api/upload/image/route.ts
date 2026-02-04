@@ -4,25 +4,26 @@ import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import jwt from 'jsonwebtoken';
 import { queryOne } from '@/lib/db/client';
 
-// Verify admin authentication
-async function verifyAdmin(request: NextRequest): Promise<{ valid: boolean; userId?: string }> {
+// Verify authenticated user (admin or editor)
+async function verifyUser(request: NextRequest): Promise<{ valid: boolean; userId?: string; role?: string }> {
   try {
     const authHeader = request.headers.get('authorization');
-    
+
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return { valid: false };
     }
 
     const token = authHeader.substring(7);
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key') as any;
-    
+
     const user = await queryOne('SELECT role FROM users WHERE id = $1', [decoded.userId]);
-    
-    if (!user || user.role !== 'admin') {
+
+    // Allow admin and editor roles
+    if (!user || !['admin', 'editor'].includes(user.role)) {
       return { valid: false };
     }
 
-    return { valid: true, userId: decoded.userId };
+    return { valid: true, userId: decoded.userId, role: user.role };
   } catch {
     return { valid: false };
   }
@@ -44,7 +45,7 @@ const CDN_URL = process.env.TIGRIS_CDN_URL || '';
 
 export async function POST(request: NextRequest) {
   try {
-    const auth = await verifyAdmin(request);
+    const auth = await verifyUser(request);
     if (!auth.valid) {
       return NextResponse.json(
         { error: 'Unauthorized' },
