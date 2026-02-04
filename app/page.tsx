@@ -82,27 +82,27 @@ export default async function HomePage() {
       <main className="pt-20 pb-12">
         <div className="max-w-[1200px] mx-auto">
           {/* Hero Section */}
-          <div className="px-4 py-6">
-            <div className="relative overflow-hidden rounded-xl">
+          <div className="px-3 sm:px-4 py-4 sm:py-6">
+            <div className="relative overflow-hidden rounded-lg sm:rounded-xl">
               <Link href={featuredPost ? `/post/${featuredPost.slug}` : '/blog'}>
                 <div
-                  className="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat items-start justify-end px-6 pb-12 md:px-12 transition-transform duration-700 hover:scale-[1.01]"
+                  className="flex min-h-[320px] sm:min-h-[420px] md:min-h-[520px] flex-col gap-4 sm:gap-6 bg-cover bg-center bg-no-repeat items-start justify-end px-4 pb-6 sm:px-6 sm:pb-10 md:px-12 md:pb-12 transition-transform duration-700 hover:scale-[1.01]"
                   style={{
                     backgroundImage: `linear-gradient(rgba(15, 20, 25, 0.1) 0%, rgba(15, 20, 25, 0.9) 100%), url("${heroImage}")`
                   }}
                 >
-                  <div className="flex flex-col gap-3 text-left max-w-2xl">
-                    <span className="bg-primary px-3 py-1 rounded text-white text-xs font-black uppercase w-fit tracking-wider">
+                  <div className="flex flex-col gap-2 sm:gap-3 text-left max-w-2xl">
+                    <span className="bg-primary px-2 sm:px-3 py-1 rounded text-white text-[10px] sm:text-xs font-black uppercase w-fit tracking-wider">
                       Breaking News
                     </span>
-                    <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl uppercase">
+                    <h1 className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em] uppercase">
                       {featuredPost?.title || 'Welcome to FanverseDaily'}
                     </h1>
-                    <p className="text-gray-300 text-lg font-normal leading-relaxed">
+                    <p className="text-gray-300 text-sm sm:text-base md:text-lg font-normal leading-relaxed line-clamp-2 sm:line-clamp-none">
                       {featuredPost?.excerpt || 'Your ultimate source for entertainment news - Gaming, Movies, TV, Anime & more.'}
                     </p>
                   </div>
-                  <span className="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold tracking-[0.015em] hover:scale-105 transition-transform">
+                  <span className="flex min-w-[120px] sm:min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-10 sm:h-12 px-4 sm:px-6 bg-primary text-white text-sm sm:text-base font-bold tracking-[0.015em] hover:scale-105 transition-transform">
                     Read Full Story
                   </span>
                 </div>
@@ -111,19 +111,19 @@ export default async function HomePage() {
           </div>
 
           {/* Category Filter Pills - Scroll to sections */}
-          <div className="px-4 overflow-x-auto hide-scrollbar">
-            <div className="flex gap-3 py-2 flex-nowrap items-center">
+          <div className="px-3 sm:px-4 overflow-x-auto hide-scrollbar">
+            <div className="flex gap-2 sm:gap-3 py-2 flex-nowrap items-center">
               {categoryFilters.map((filter, index) => (
                 <a
                   key={filter.anchor}
                   href={`#${filter.anchor}`}
-                  className={`flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg px-5 cursor-pointer transition-colors ${
+                  className={`flex h-8 sm:h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg px-3 sm:px-5 cursor-pointer transition-colors ${
                     index === 0
                       ? 'bg-primary text-white'
                       : 'bg-card text-foreground hover:bg-secondary border border-border'
                   }`}
                 >
-                  <p className={`text-sm uppercase tracking-wide ${index === 0 ? 'font-bold' : 'font-semibold'}`}>
+                  <p className={`text-xs sm:text-sm uppercase tracking-wide whitespace-nowrap ${index === 0 ? 'font-bold' : 'font-semibold'}`}>
                     {filter.label}
                   </p>
                 </a>
@@ -132,20 +132,20 @@ export default async function HomePage() {
           </div>
 
           {/* Content Sections */}
-          <div className="px-4 py-12 flex flex-col gap-16">
+          <div className="px-3 sm:px-4 py-8 sm:py-12 flex flex-col gap-10 sm:gap-16">
 
             {/* Latest Stories Section with Sidebar - FIRST */}
-            <section id="latest-stories" className="scroll-mt-24">
-              <div className="flex flex-col lg:flex-row gap-8">
+            <section id="latest-stories" className="scroll-mt-20 sm:scroll-mt-24">
+              <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
                 {/* Latest Stories Grid */}
                 <div className="flex-1">
-                  <div className="flex items-center justify-between mb-8 border-l-4 border-primary pl-4">
-                    <h2 className="text-2xl font-black uppercase tracking-tight">Latest Stories</h2>
-                    <Link href="/blog" className="text-primary text-sm font-bold hover:underline">
+                  <div className="flex items-center justify-between mb-6 sm:mb-8 border-l-4 border-primary pl-3 sm:pl-4">
+                    <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">Latest Stories</h2>
+                    <Link href="/blog" className="text-primary text-xs sm:text-sm font-bold hover:underline">
                       View All
                     </Link>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                     {otherPosts.slice(0, 4).map((post) => (
                       <Link key={post.slug} href={`/post/${post.slug}`}>
                         <article className="flex flex-col gap-3 group">
@@ -164,11 +164,11 @@ export default async function HomePage() {
                               </div>
                             )}
                           </div>
-                          <div className="flex flex-col gap-2">
-                            <p className="text-foreground text-lg font-bold leading-snug group-hover:text-primary transition-colors cursor-pointer line-clamp-2">
+                          <div className="flex flex-col gap-1 sm:gap-2">
+                            <p className="text-foreground text-base sm:text-lg font-bold leading-snug group-hover:text-primary transition-colors cursor-pointer line-clamp-2">
                               {post.title}
                             </p>
-                            <div className="flex items-center gap-2 text-muted-foreground text-xs font-semibold uppercase">
+                            <div className="flex items-center gap-2 text-muted-foreground text-[10px] sm:text-xs font-semibold uppercase">
                               <span>{new Date(post.publishedAt || post.createdAt).toLocaleDateString()}</span>
                               <span>•</span>
                               <span>{post.readTime || 5} min read</span>
@@ -183,9 +183,9 @@ export default async function HomePage() {
                 {/* Sidebar */}
                 <div className="lg:w-80 shrink-0">
                   {/* Trending Now */}
-                  <div className="bg-card rounded-xl p-6 border border-border mb-8">
-                    <h3 className="text-xl font-black uppercase mb-6 flex items-center gap-2">
-                      <TrendingUp className="w-5 h-5 text-primary" />
+                  <div className="bg-card rounded-xl p-4 sm:p-6 border border-border mb-6 sm:mb-8">
+                    <h3 className="text-lg sm:text-xl font-black uppercase mb-4 sm:mb-6 flex items-center gap-2">
+                      <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                       Trending Now
                     </h3>
                     <div className="flex flex-col gap-6">
@@ -212,9 +212,9 @@ export default async function HomePage() {
                   </div>
 
                   {/* Newsletter Signup */}
-                  <div className="bg-primary rounded-xl p-6 text-white">
-                    <h3 className="text-lg font-black uppercase mb-2">Join the Fanverse</h3>
-                    <p className="text-sm mb-4 opacity-90 leading-snug">
+                  <div className="bg-primary rounded-xl p-4 sm:p-6 text-white">
+                    <h3 className="text-base sm:text-lg font-black uppercase mb-2">Join the Fanverse</h3>
+                    <p className="text-xs sm:text-sm mb-3 sm:mb-4 opacity-90 leading-snug">
                       Get daily updates on movies, games, and more right in your inbox.
                     </p>
                     <ClientOnly>
@@ -234,14 +234,14 @@ export default async function HomePage() {
               if (!sectionPosts || sectionPosts.length === 0) return null;
 
               return (
-                <section key={section.slug} id={section.id} className="scroll-mt-24">
-                  <div className="flex items-center justify-between mb-8 border-l-4 border-primary pl-4">
-                    <h2 className="text-2xl font-black uppercase tracking-tight">{section.title}</h2>
-                    <Link href={`/blog?category=${section.slug}`} className="text-primary text-sm font-bold hover:underline">
+                <section key={section.slug} id={section.id} className="scroll-mt-20 sm:scroll-mt-24">
+                  <div className="flex items-center justify-between mb-6 sm:mb-8 border-l-4 border-primary pl-3 sm:pl-4">
+                    <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">{section.title}</h2>
+                    <Link href={`/blog?category=${section.slug}`} className="text-primary text-xs sm:text-sm font-bold hover:underline">
                       View All
                     </Link>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                     {sectionPosts.map((post) => (
                       <Link key={post.slug} href={`/post/${post.slug}`}>
                         <article className="bg-card rounded-lg overflow-hidden group border border-border hover:border-primary/50 transition-all">

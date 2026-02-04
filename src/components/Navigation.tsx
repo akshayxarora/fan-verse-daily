@@ -31,9 +31,9 @@ const Navigation = () => {
           {/* Logo & Nav Links */}
           <div className="flex items-center gap-8">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-4 text-primary">
+            <Link href="/" className="flex items-center gap-2 sm:gap-4 text-primary">
               <FanverseLogo />
-              <h2 className="text-primary text-xl font-black leading-tight tracking-[-0.015em]">
+              <h2 className="text-primary text-base sm:text-xl font-black leading-tight tracking-[-0.015em] hidden xs:block sm:block">
                 FanverseDaily
               </h2>
             </Link>

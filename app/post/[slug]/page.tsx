@@ -94,33 +94,33 @@ export default async function PostPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <main className="pt-24 pb-12">
+      <main className="pt-20 sm:pt-24 pb-8 sm:pb-12">
         <ViewTracker postId={post.id} />
-        <div className="max-w-[1200px] mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-3 sm:px-4">
           {/* Breadcrumb Navigation */}
-          <nav className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground mb-8">
-            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-            <ChevronRight className="w-3 h-3" />
-            <Link href={`/blog?category=${categorySlug}`} className="hover:text-primary transition-colors">{category}</Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-foreground">Article</span>
+          <nav className="flex items-center gap-1 sm:gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4 sm:mb-8 overflow-x-auto">
+            <Link href="/" className="hover:text-primary transition-colors shrink-0">Home</Link>
+            <ChevronRight className="w-3 h-3 shrink-0" />
+            <Link href={`/blog?category=${categorySlug}`} className="hover:text-primary transition-colors shrink-0">{category}</Link>
+            <ChevronRight className="w-3 h-3 shrink-0" />
+            <span className="text-foreground truncate">Article</span>
           </nav>
 
           {/* Two Column Layout */}
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col lg:flex-row gap-8 sm:gap-12">
             {/* Main Content */}
             <article className="flex-1 max-w-3xl">
               {/* Hero Image */}
               {post.featuredImage && (
-                <div className="relative w-full rounded-2xl overflow-hidden mb-8 aspect-video">
+                <div className="relative w-full rounded-lg sm:rounded-2xl overflow-hidden mb-6 sm:mb-8 aspect-video">
                   <img
                     src={post.featuredImage}
                     alt={post.title}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                  <div className="absolute top-6 left-6">
-                    <span className="bg-primary px-3 py-1.5 rounded-md text-white text-xs font-black uppercase tracking-widest shadow-lg">
+                  <div className="absolute top-3 left-3 sm:top-6 sm:left-6">
+                    <span className="bg-primary px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-white text-[10px] sm:text-xs font-black uppercase tracking-widest shadow-lg">
                       {category}
                     </span>
                   </div>
@@ -128,27 +128,27 @@ export default async function PostPage({ params }: PageProps) {
               )}
 
               {/* Title Section */}
-              <div className="mb-8">
-                <h1 className="text-foreground text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6 uppercase">
+              <div className="mb-6 sm:mb-8">
+                <h1 className="text-foreground text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-4 sm:mb-6 uppercase">
                   {post.title}
                 </h1>
 
                 {/* Author & Meta Bar */}
-                <div className="flex items-center gap-4 border-y border-border py-4 mb-8">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                <div className="flex items-center gap-3 sm:gap-4 border-y border-border py-3 sm:py-4 mb-6 sm:mb-8">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm sm:text-base">
                     FD
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-bold text-foreground">FanverseDaily Staff</span>
-                    <span className="text-xs text-muted-foreground font-semibold uppercase">
-                      Published {new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-US', {
-                        month: 'long',
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-xs sm:text-sm font-bold text-foreground">FanverseDaily Staff</span>
+                    <span className="text-[10px] sm:text-xs text-muted-foreground font-semibold uppercase truncate">
+                      {new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-US', {
+                        month: 'short',
                         day: 'numeric',
                         year: 'numeric',
-                      })} • {post.readTime || 5} Min Read
+                      })} • {post.readTime || 5} Min
                     </span>
                   </div>
-                  <div className="ml-auto flex gap-2">
+                  <div className="ml-auto flex gap-2 shrink-0">
                     <button className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                       <Share2 className="w-4 h-4" />
                     </button>
@@ -160,13 +160,13 @@ export default async function PostPage({ params }: PageProps) {
               </div>
 
               {/* Article Content */}
-              <div className="prose prose-lg dark:prose-invert max-w-none
-                prose-p:text-muted-foreground prose-p:text-lg prose-p:leading-relaxed prose-p:mb-6
+              <div className="prose prose-sm sm:prose-lg dark:prose-invert max-w-none
+                prose-p:text-muted-foreground prose-p:text-base prose-p:sm:text-lg prose-p:leading-relaxed prose-p:mb-4 prose-p:sm:mb-6
                 prose-headings:text-foreground prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                 prose-strong:text-foreground
-                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:italic
-                prose-img:rounded-xl
+                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:sm:pl-6 prose-blockquote:italic
+                prose-img:rounded-lg prose-img:sm:rounded-xl
               ">
                 {/* Lead Paragraph */}
                 {post.excerpt && (
