@@ -115,6 +115,29 @@ Allow users to save articles for later reading.
 - Share bookmarks
 
 
+### 9. Newsletter Popup Modal
+**Priority:** Medium
+**Location:** Site-wide (non-admin pages)
+**Status:** Component exists, temporarily disabled
+
+A popup modal that encourages visitors to subscribe to the newsletter.
+
+**Current Implementation:** `src/components/SignupModal.tsx`
+
+**Features:**
+- Triggered after delay or scroll threshold
+- Email subscription form
+- Close button and backdrop click to dismiss
+- Cookie/localStorage to prevent repeated display
+- Connected to newsletter subscription API
+
+**TODO:**
+- [ ] Improve trigger timing (scroll %, time on site, exit intent)
+- [ ] Add A/B testing for different copy
+- [ ] Better mobile experience
+- [ ] Re-enable in `ConditionalLayout.tsx` when ready
+
+
 ---
 
 ## Completed Features

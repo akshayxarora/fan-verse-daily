@@ -4,7 +4,7 @@
 import { usePathname } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import SignupModal from '@/components/SignupModal';
+// import SignupModal from '@/components/SignupModal'; // TODO: Re-enable newsletter popup modal - see Future Plans.md
 import { ClientOnly } from '@/components/ClientOnly';
 
 export function ConditionalLayout({ children }: { children: React.ReactNode }) {
@@ -16,11 +16,13 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
       {!isAdminRoute && <Navigation />}
       {children}
       {!isAdminRoute && <Footer />}
+      {/* Newsletter Signup Modal - temporarily disabled
       {!isAdminRoute && (
         <ClientOnly>
           <SignupModal />
         </ClientOnly>
       )}
+      */}
     </>
   );
 }
