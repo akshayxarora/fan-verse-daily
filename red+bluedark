@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FanverseDaily - Entertainment News</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff3b5c",
+                        "accent-blue": "#0066FF",
+                        "background-light": "#f8f5f6",
+                        "background-dark": "#0F1419",
+                        "card-dark": "#1A1F2E",
+                        "footer-deep": "#0F1419",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "12px",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1d0c0f] dark:text-[#E4E6EB] transition-colors duration-200">
+<header class="fixed top-0 z-50 w-full border-b border-solid border-[#f4e6e8] dark:border-gray-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:px-10 py-3">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between whitespace-nowrap">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
+</svg>
+</div>
+<h2 class="text-primary text-xl font-black leading-tight tracking-[-0.015em]">FanverseDaily</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6 text-[#1d0c0f] dark:text-white">
+<a class="hover:text-primary transition-colors text-sm font-semibold leading-normal" href="#">Gaming</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold leading-normal" href="#">Movies</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold leading-normal" href="#">TV</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold leading-normal" href="#">Anime</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden">
+<div class="text-gray-400 flex border-none bg-gray-100 dark:bg-card-dark items-center justify-center pl-4 border-r-0">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-gray-100 dark:bg-card-dark text-[#1d0c0f] dark:text-white focus:outline-0 focus:ring-0 h-full placeholder:text-gray-500 px-4 pl-2 text-sm font-normal" placeholder="Search Fanverse..." value=""/>
+</div>
+</label>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:brightness-110 transition-all">
+<span>Subscribe</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-primary/20" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDjD6imH3ZQNveJQ1sGrur-fX4FGRvmmFOJJkIa9GLFSEjuTyZWd8y3fbu1li2mGIfkF5Al5k5r31Nn9Yrmg7S33mLYw-zfGJT616a6bqJPxvZb0R1UEjUuMoBmJ-wmE2nef33npiSbJTOhNbhPeeT4vHJpu2QXBdfJ0U3VmzwQ3kFKZVF-RZB2jkDIeEdftlLE0Wk7-MO1iXrmdx01T18pmhRYzW4WK_1XCCb4bRBsvZhbBGSO_pPlF_IFpqG9zTG2BYp_jkfUMBog");'></div>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-12">
+<div class="max-w-[1200px] mx-auto">
+<div class="px-4 py-6">
+<div class="@container">
+<div class="relative overflow-hidden rounded-xl">
+<div class="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat items-start justify-end px-6 pb-12 md:px-12 transition-transform duration-700 hover:scale-[1.01]" style='background-image: linear-gradient(rgba(15, 20, 25, 0.1) 0%, rgba(15, 20, 25, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6KdH0BTW9aV-CPbcd0RiVa1GHeEE7TuBe1lBSl_StyrmTUsUKxf-HW-8QuxAyKg5ZUaPMc1_NOVfHfIL5Lx253gT226LJVNpziXtJ8gb_Ikkw6Wj-ydhMrupkC8WR3eCETXr7GXce7zYaXT9_ER74Z1Qcmb2XomlMUeK9rpDMd7b2IamgIcgYrYNLrbl5-yfdbzeQLHWSAnkTDRrPUoaVjxgqjKzpT822cq7WG2ZuDwtWrA2WFSQpf0ugY3Yz9DgkHovHXyc7uY9V");'>
+<div class="flex flex-col gap-3 text-left max-w-2xl">
+<span class="bg-primary px-3 py-1 rounded text-white text-xs font-black uppercase w-fit tracking-wider">Breaking News</span>
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl uppercase">
+                                The Next Big Marvel Reveal
+                            </h1>
+<p class="text-gray-300 text-lg font-normal leading-relaxed">
+                                Everything we know about the upcoming phase, the return of iconic characters, and the secret trailers leaked from the studio.
+                            </p>
+</div>
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold tracking-[0.015em] hover:scale-105 transition-transform">
+<span class="truncate">Read Full Story</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 overflow-x-auto hide-scrollbar">
+<div class="flex gap-3 py-2 flex-nowrap items-center">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-white px-5 cursor-pointer">
+<p class="text-sm font-bold uppercase tracking-wide">All News</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-card-dark text-[#1d0c0f] dark:text-gray-300 px-5 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<p class="text-sm font-semibold uppercase tracking-wide">Gaming</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-card-dark text-[#1d0c0f] dark:text-gray-300 px-5 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<p class="text-sm font-semibold uppercase tracking-wide">Movies</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-card-dark text-[#1d0c0f] dark:text-gray-300 px-5 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<p class="text-sm font-semibold uppercase tracking-wide">TV Shows</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-card-dark text-[#1d0c0f] dark:text-gray-300 px-5 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<p class="text-sm font-semibold uppercase tracking-wide">Anime</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-card-dark text-[#1d0c0f] dark:text-gray-300 px-5 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<p class="text-sm font-semibold uppercase tracking-wide">Wrestling</p>
+</div>
+</div>
+</div>
+<div class="px-4 py-12 flex flex-col gap-16">
+<section>
+<div class="flex items-center justify-between mb-8 border-l-4 border-primary pl-4">
+<h2 class="text-2xl font-black uppercase tracking-tight">Anime Spotlight</h2>
+<a class="text-primary text-sm font-bold hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-gray-100 dark:bg-card-dark rounded-lg overflow-hidden group">
+<div class="relative aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkW6G5TqRVzmZMbEhUHJ0JT0nvMcg6MkZZZ-xtHUXRxSavjk0v7N7ZDe2fCSQC1rDo7UJ0tLHH-zbNGpoKIT9Ji1b5sd1GLOTB07rmnKYA4fFWHUVHmncxgfDJ6ydsd0XNBr6sAJahiF9jEd2CjFbEbTsHQ2gZFPo7UYV1Pm5IMANyvx8_bU5Zzy9jjBUFBM1OuuwFoSRDARtCLVZUtSxRtcgDiGGPGQOybHapKiBvPHO-2tOEZVBNJIMynhd1Q2olTUkziArPgqdi");'></div>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<h3 class="text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors cursor-pointer line-clamp-2">The Most Anticipated Anime Series Arriving This Summer</h3>
+<p class="text-gray-400 text-sm">A deep dive into the upcoming season's biggest hits and dark horses.</p>
+</div>
+</div>
+<div class="bg-gray-100 dark:bg-card-dark rounded-lg overflow-hidden group">
+<div class="relative aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxsnEM79Sjmdl_GD7JVfph0DR8hr7vJoeqwjUv0ImTq6K85P0xKSz7CUKNQNg-L-gn38mFIkv88uatsskAJsaufuinI_W8gm9n53s5gQn5sCjt6hC-d2Ayz7RbXtlFMhyj1YfbpqWN5u9SZa_t5POFCWF3EcsyLahL9dyFfqBHJhoIQnldxryq-9HJDlz7DIZRpelYnluFHCtCH2CQd35kcnDGA1sZhVZSZszW72-QcFBNp82CJUwAxV4MhFBaonAsVx-N_W6tcvo4");'></div>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<h3 class="text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors cursor-pointer line-clamp-2">New Trailer Drops for the Highly-Anticipated Shonen Adaptation</h3>
+<p class="text-gray-400 text-sm">Fan reactions are pouring in after the stunning visual reveal.</p>
+</div>
+</div>
+<div class="bg-gray-100 dark:bg-card-dark rounded-lg overflow-hidden group">
+<div class="relative aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZj2KdnUmOfgF62mKSLh8fPLMxabsmnkxNWHJvto6uy2ZcKO0fb8CRS9vMoux4E-DKyeq8DvdREZ6hcfPLeSIKRi8_K9DGI6QotWvqzkurO5ttqlvSG2gM_v4auPH0GWtopB5nB8NPT_bRndq3ycMP0UWrPMfJVXChtzkfGHBqrWHNGumP2xH05GVs85t_Gz1nIia2mDQoMTbm70gNtji1eZPEAQtGft1rj_Uu6kergHljW-BdPSve9fA7pOWtYaVuockPW_LPIQ-M");'></div>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<h3 class="text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors cursor-pointer line-clamp-2">Iconic Studios Announce Groundbreaking Collaborative Project</h3>
+<p class="text-gray-400 text-sm">Two titans of the industry are teaming up for an original feature film.</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-8 border-l-4 border-primary pl-4">
+<h2 class="text-2xl font-black uppercase tracking-tight">Wrestling Universe</h2>
+<a class="text-primary text-sm font-bold hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-gray-100 dark:bg-card-dark rounded-lg overflow-hidden group">
+<div class="relative aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDyWBJ-dA8VSNSWPW-dpOHYJO4HM2GbSVnTa90rWhJkMGkgEO4FgHtoyVjIjcrtiMcZ3JKgx7JJt0JtjTM4gMERILmyOFFHoqRmwXw_0gaqqVp3s670aYgPZb0PzXCTEugExu4_hNyfzlTP81bwiUtgaBmol3ZsG9QgviPIiXVON9w7Z48JgOOhYjMypfuxzc7QLUORUO1NCjmpp9dahtasaRMGS9I7KkkNzcUEE9vYNfYQzaeIpOn63snsu7cVYV3T175tBfEGZkKz");'></div>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<h3 class="text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors cursor-pointer line-clamp-2">Championship Shakeup: New Titles Crowned in Main Event</h3>
+<p class="text-gray-400 text-sm">The landscape has shifted after a shocking turn of events last night.</p>
+</div>
+</div>
+<div class="bg-gray-100 dark:bg-card-dark rounded-lg overflow-hidden group">
+<div class="relative aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAsgkWOja4dEZr1VqHGgl86RQV9_h1gY4tppki4hS1ZP8B1CBe2_7SDKqprtooa9xl5_mNVpsB-LrR6Dp01FMhgvDiKz-JgmrV8_jBBp0JZOxxwDG0ENowS1Icx67hvtE-d_hSKgt8oIkYU9m5awi5Oa6-0JoaPr4SN1uMjL8kuaEMYAC1Gipg-GRubVrVq8rI6Mb6IkBQ5lWXwkJ2jSRRH8YVmdVyj-IQlto9qjOSKzRcXf6GDt6KVIa5CM8XbDVY1FdqmNZON9_76");'></div>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<h3 class="text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors cursor-pointer line-clamp-2">Legendary Performer Teases One Final Run in the Ring</h3>
+<p class="text-gray-400 text-sm">Speculation reaches fever pitch as social media posts hint at a return.</p>
+</div>
+</div>
+<div class="bg-gray-100 dark:bg-card-dark rounded-lg overflow-hidden group">
+<div class="relative aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFDcMhW8eDELkwNeKSZ_yCsCrWjUAFfO7RNRDVxZnVYcmgNRxhvHrQYHKKGdch9jvjlVgaMorgt2YcaupqzZsdJ7w0hdOaLu4rohaxfPC201ChIlzCZpudqX6qowL3htz8yKUGzQxezASLR22FjVbJ3BIavNWuNsQNczDkARNMsSoLJ7gqCc58Txb7fvVquvcCfCIN7nThi4B3-pqbztbGBJ7q3M_N2y9En4dG-acUBLcPor3bWOo5mihnqAtHm3QIcr2AurkhfLLD");'></div>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<h3 class="text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors cursor-pointer line-clamp-2">Behind the Scenes: How the Biggest Match of the Year was Built</h3>
+<p class="text-gray-400 text-sm">An exclusive look at the planning and training for the epic finale.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="flex flex-col lg:flex-row gap-8 px-4 py-12">
+<div class="flex-1">
+<div class="flex items-center justify-between mb-8 border-l-4 border-primary pl-4">
+<h2 class="text-2xl font-black uppercase tracking-tight">Latest Stories</h2>
+<a class="text-primary text-sm font-bold hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-3 group">
+<div class="relative w-full aspect-video rounded-lg overflow-hidden ring-1 ring-white/10">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Grand Theft Auto VI leaked map concept" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtD32n9hp0fFkceJhhRF9-xXuYIsTx76A4ZgYeoAzuNxsvEFZzmBILHC5EtTI-qHZSufyhdOmCFmZzeQGFyT6d6BO8pmZlXrgYNxxeWPSAwN883l8RkkhdDW094TWNoqRKheanZD1OQZqr-rwelzTPnT4vc6BQak4d9zWwMNr7JbNUsLv8K-Uj-BKGBu5WWpLRIYG2i4NggG6onzk57X-S73gBfYdjfg_gpp-HNulASyXc92TuuOdJ-CTE-pAvRKfcgLzJ5mqKPZKU");'></div>
+<div class="absolute top-3 left-3 bg-accent-blue text-white text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-tighter">Gaming</div>
+</div>
+<div class="flex flex-col gap-2">
+<p class="text-[#1d0c0f] dark:text-white text-lg font-bold leading-snug group-hover:text-primary transition-colors cursor-pointer">
+                                GTA VI Leaks: New Vice City Map Details Revealed by Insiders
+                            </p>
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase">
+<span>5 mins ago</span>
+<span>•</span>
+<span>By Alex Reed</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 group">
+<div class="relative w-full aspect-video rounded-lg overflow-hidden ring-1 ring-white/10">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="The Batman Part II dark moody poster" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJ-q8FSl7buV2C81seLuR294mQ6ZAazt2LyFFXX-sC23cA_WJcSQX527B0YPKbH6eSR9IF9dvU_Q1PWfsQoJxwb-Zccgc6xlG7A2Ktho6mnvZ-0vSQnuspcJwQs8XGzMzGqrqIJGAd9je1kV_6dKL0UcYpqVzT3jQRS3xnAo2jbq_FUv18aErmYthF2kR63GvNDLn8N7YeZA_NXRsKpHxVV-KexlSwvsMB3Wo-k_OqudO3hCwyqxp3U6mTT-P7fsA-fs9YYlMnzV44");'></div>
+<div class="absolute top-3 left-3 bg-accent-blue text-white text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-tighter">Movies</div>
+</div>
+<div class="flex flex-col gap-2">
+<p class="text-[#1d0c0f] dark:text-white text-lg font-bold leading-snug group-hover:text-primary transition-colors cursor-pointer">
+                                The Batman Part II: Matt Reeves Confirms Villain Casting Rumors
+                            </p>
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase">
+<span>2 hours ago</span>
+<span>•</span>
+<span>By Sarah Lane</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-80 shrink-0">
+<div class="bg-gray-100 dark:bg-card-dark rounded-xl p-6 border border-gray-200 dark:border-white/5">
+<h3 class="text-xl font-black uppercase mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+                        Trending Now
+                    </h3>
+<div class="flex flex-col gap-6">
+<div class="flex gap-4 items-start group cursor-pointer">
+<span class="text-3xl font-black text-primary/30 group-hover:text-primary transition-colors">01</span>
+<div class="flex flex-col gap-1">
+<p class="text-sm font-bold leading-tight group-hover:underline">Elden Ring DLC: Everything we found in the new trailer</p>
+<span class="text-[10px] font-black text-accent-blue uppercase">Gaming</span>
+</div>
+</div>
+<div class="flex gap-4 items-start group cursor-pointer">
+<span class="text-3xl font-black text-primary/30 group-hover:text-primary transition-colors">02</span>
+<div class="flex flex-col gap-1">
+<p class="text-sm font-bold leading-tight group-hover:underline">House of the Dragon Season 2 premiere date confirmed</p>
+<span class="text-[10px] font-black text-accent-blue uppercase">TV Shows</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-primary rounded-xl p-6 text-white">
+<h3 class="text-lg font-black uppercase mb-2">Join the Fanverse</h3>
+<p class="text-sm mb-4 opacity-90 leading-snug">Get daily updates on movies, games, and tech right in your inbox.</p>
+<div class="flex flex-col gap-3">
+<input class="bg-white/10 border-white/20 rounded-lg text-sm placeholder:text-white/60 focus:ring-0 focus:border-white/40" placeholder="email@example.com" type="email"/>
+<button class="bg-white text-primary font-bold py-2 rounded-lg text-sm hover:bg-gray-100 transition-colors">Sign Up</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-footer-deep text-white w-full">
+<div class="max-w-[1200px] mx-auto pt-20 pb-10 px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
+</svg>
+</div>
+<h2 class="text-2xl font-black tracking-tight">FanverseDaily</h2>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                    FanverseDaily is your ultimate source for the latest breaking news in entertainment, gaming, anime, and pop culture. We bring you closer to the stories that matter to fans.
+                </p>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 text-primary hover:text-white transition-colors text-sm font-bold uppercase tracking-wider" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<span class="material-symbols-outlined text-lg">arrow_upward</span>
+                        Back to Top
+                    </button>
+</div>
+</div>
+<div>
+<h4 class="text-white font-black uppercase tracking-widest text-sm mb-6 pb-2 border-b border-primary/30 w-fit">Categories</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Gaming &amp; Esports</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Movies &amp; Blockbusters</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">TV &amp; Streaming</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Anime &amp; Manga</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Wrestling News</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Tech &amp; Hardware</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-black uppercase tracking-widest text-sm mb-6 pb-2 border-b border-primary/30 w-fit">Company</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">About Us</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Contact Support</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Privacy Policy</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Terms of Service</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Advertising</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-black uppercase tracking-widest text-sm mb-6 pb-2 border-b border-primary/30 w-fit">Follow the Fanverse</h4>
+<div class="flex flex-wrap gap-4 mt-2">
+<a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all group" href="#">
+<span class="material-symbols-outlined text-gray-300 group-hover:text-white">public</span>
+</a>
+<a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all group" href="#">
+<span class="material-symbols-outlined text-gray-300 group-hover:text-white">share</span>
+</a>
+<a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all group" href="#">
+<span class="material-symbols-outlined text-gray-300 group-hover:text-white">rss_feed</span>
+</a>
+<a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all group" href="#">
+<span class="material-symbols-outlined text-gray-300 group-hover:text-white">videocam</span>
+</a>
+</div>
+<div class="mt-8 bg-white/5 p-4 rounded-lg border border-white/10">
+<p class="text-xs text-gray-400 italic">Stay connected for exclusive behind-the-scenes content and early news access.</p>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-500 font-medium tracking-wide">
+                © 2024 <span class="text-gray-400">FanverseDaily Media Group</span>. All rights reserved.
+            </p>
+<div class="flex gap-6">
+<span class="text-[10px] text-gray-600 uppercase font-black tracking-widest">Designed for the fans</span>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>
