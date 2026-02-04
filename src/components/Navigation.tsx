@@ -28,18 +28,34 @@ const Navigation = () => {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-3">
         <nav className="flex items-center justify-between whitespace-nowrap">
-          {/* Logo & Nav Links */}
-          <div className="flex items-center gap-8">
+          {/* Mobile Menu Toggle - Left side on mobile */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 text-foreground"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+
+          {/* Mobile Center - Site Name */}
+          <Link href="/" className="md:hidden text-primary">
+            <h2 className="text-primary text-base font-black leading-tight tracking-[-0.015em]">
+              FanverseDaily
+            </h2>
+          </Link>
+
+          {/* Desktop Logo & Nav Links */}
+          <div className="hidden md:flex items-center gap-8">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 sm:gap-4 text-primary">
+            <Link href="/" className="flex items-center gap-4 text-primary">
               <FanverseLogo />
-              <h2 className="text-primary text-base sm:text-xl font-black leading-tight tracking-[-0.015em] hidden xs:block sm:block">
+              <h2 className="text-primary text-xl font-black leading-tight tracking-[-0.015em]">
                 FanverseDaily
               </h2>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-6">
+            <nav className="flex items-center gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -52,10 +68,10 @@ const Navigation = () => {
             </nav>
           </div>
 
-          {/* Right Side: Search, Subscribe, Profile */}
-          <div className="flex flex-1 justify-end gap-4 items-center">
+          {/* Right Side: Search, Subscribe, Theme Toggle */}
+          <div className="flex items-center gap-4">
             {/* Search Bar - Hidden on mobile */}
-            <label className="hidden sm:flex flex-col min-w-40 h-10 max-w-64">
+            <label className="hidden md:flex flex-col min-w-40 h-10 max-w-64">
               <div className="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden border border-border">
                 <div className="text-muted-foreground flex bg-card items-center justify-center pl-4">
                   <Search className="w-5 h-5" />
@@ -70,25 +86,21 @@ const Navigation = () => {
               </div>
             </label>
 
-            {/* Subscribe Button */}
+            {/* Subscribe Button - Hidden on mobile */}
             <Link
               href="/subscribe"
-              className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:brightness-110 transition-all"
+              className="hidden md:flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:brightness-110 transition-all"
             >
               Subscribe
             </Link>
 
-            {/* Theme Toggle */}
-            <ThemeToggle />
+            {/* Theme Toggle - Hidden on mobile */}
+            <div className="hidden md:block">
+              <ThemeToggle />
+            </div>
 
-            {/* Mobile Menu Toggle */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-foreground"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+            {/* Mobile placeholder for balanced layout */}
+            <div className="w-9 md:hidden" />
           </div>
         </nav>
 
@@ -129,6 +141,12 @@ const Navigation = () => {
                     {link.label}
                   </Link>
                 ))}
+
+                {/* Theme Toggle in Mobile Menu */}
+                <div className="flex items-center justify-between px-4 py-3 border-t border-border mt-2 pt-4">
+                  <span className="text-foreground font-semibold">Theme</span>
+                  <ThemeToggle />
+                </div>
               </div>
             </motion.div>
           )}
