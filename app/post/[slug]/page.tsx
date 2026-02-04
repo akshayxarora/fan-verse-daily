@@ -136,10 +136,10 @@ export default async function PostPage({ params }: PageProps) {
                 {/* Author & Meta Bar */}
                 <div className="flex items-center gap-4 border-y border-border py-4 mb-8">
                   <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
-                    {(post.author || 'FD').charAt(0).toUpperCase()}
+                    FD
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-bold text-foreground">{post.author || 'FanverseDaily Staff'}</span>
+                    <span className="text-sm font-bold text-foreground">FanverseDaily Staff</span>
                     <span className="text-xs text-muted-foreground font-semibold uppercase">
                       Published {new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-US', {
                         month: 'long',
