@@ -42,14 +42,14 @@ export async function verifyAuth(request: NextRequest): Promise<AuthUser | null>
 
 /**
  * Verify API key from X-API-Key header
- * Used for external services submitting drafts
+ * Used for external services accessing the API
  */
 export function verifyApiKey(request: NextRequest): boolean {
   const apiKey = request.headers.get('x-api-key');
-  const validApiKey = process.env.DRAFT_API_KEY;
+  const validApiKey = process.env.API_KEY;
 
   if (!validApiKey) {
-    console.warn('DRAFT_API_KEY not set in environment variables');
+    console.warn('API_KEY not set in environment variables');
     return false;
   }
 
@@ -62,4 +62,19 @@ export function verifyApiKey(request: NextRequest): boolean {
 export function canModifyPosts(user: AuthUser | null): boolean {
   if (!user) return false;
   return ['admin', 'editor'].includes(user.role);
+}
+
+/**
+ * Verify request has valid auth (either JWT or API key)
+ * Returns true if authorized, false otherwise
+ */
+export async function isAuthorized(request: NextRequest): Promise<boolean> {
+  // First check API key
+  if (verifyApiKey(request)) {
+    return true;
+  }
+
+  // Then check JWT
+  const user = await verifyAuth(request);
+  return canModifyPosts(user);
 }

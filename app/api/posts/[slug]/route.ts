@@ -5,7 +5,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import sanitizeHtml from 'sanitize-html';
 import { sendPostUpdateNotification } from '@/lib/resend';
 import { deleteFile, extractImageUrls } from '@/lib/storage';
-import { verifyAuth, canModifyPosts } from '@/lib/auth';
+import { isAuthorized } from '@/lib/auth';
 
 export async function GET(
   request: NextRequest,
@@ -98,11 +98,10 @@ export async function PUT(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    // Verify authentication
-    const user = await verifyAuth(request);
-    if (!canModifyPosts(user)) {
+    // Verify authentication (JWT or API key)
+    if (!await isAuthorized(request)) {
       return NextResponse.json(
-        { error: 'Unauthorized. Admin or editor access required.' },
+        { error: 'Unauthorized. Valid authentication required.' },
         { status: 401 }
       );
     }
@@ -257,11 +256,10 @@ export async function DELETE(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    // Verify authentication
-    const user = await verifyAuth(request);
-    if (!canModifyPosts(user)) {
+    // Verify authentication (JWT or API key)
+    if (!await isAuthorized(request)) {
       return NextResponse.json(
-        { error: 'Unauthorized. Admin or editor access required.' },
+        { error: 'Unauthorized. Valid authentication required.' },
         { status: 401 }
       );
     }

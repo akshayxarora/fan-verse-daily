@@ -4,7 +4,7 @@ import { query, queryOne } from '@/lib/db/client';
 import { renderMarkdown } from '@/lib/markdown';
 import sanitizeHtml from 'sanitize-html';
 import { sendPostUpdateNotification } from '@/lib/resend';
-import { verifyAuth, canModifyPosts } from '@/lib/auth';
+import { isAuthorized } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
   try {
@@ -103,11 +103,10 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    // Verify authentication
-    const user = await verifyAuth(request);
-    if (!canModifyPosts(user)) {
+    // Verify authentication (JWT or API key)
+    if (!await isAuthorized(request)) {
       return NextResponse.json(
-        { error: 'Unauthorized. Admin or editor access required.' },
+        { error: 'Unauthorized. Valid authentication required.' },
         { status: 401 }
       );
     }
