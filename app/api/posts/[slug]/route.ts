@@ -5,6 +5,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import sanitizeHtml from 'sanitize-html';
 import { sendPostUpdateNotification } from '@/lib/resend';
 import { deleteFile, extractImageUrls } from '@/lib/storage';
+import { verifyAuth, canModifyPosts } from '@/lib/auth';
 
 export async function GET(
   request: NextRequest,
@@ -97,7 +98,15 @@ export async function PUT(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    // TODO: Add authentication check
+    // Verify authentication
+    const user = await verifyAuth(request);
+    if (!canModifyPosts(user)) {
+      return NextResponse.json(
+        { error: 'Unauthorized. Admin or editor access required.' },
+        { status: 401 }
+      );
+    }
+
     const { slug } = await params;
     const body = await request.json();
     const {
@@ -248,7 +257,15 @@ export async function DELETE(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    // TODO: Add authentication check
+    // Verify authentication
+    const user = await verifyAuth(request);
+    if (!canModifyPosts(user)) {
+      return NextResponse.json(
+        { error: 'Unauthorized. Admin or editor access required.' },
+        { status: 401 }
+      );
+    }
+
     const { slug } = await params;
 
     // 1. Fetch post before deleting to get asset URLs

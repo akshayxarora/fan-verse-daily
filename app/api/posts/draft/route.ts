@@ -1,11 +1,21 @@
 // Next.js API route for draft-only post submissions
 // This endpoint always creates posts as drafts, regardless of the status sent
+// Requires X-API-Key header for authentication
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/db/client';
 import { renderMarkdown } from '@/lib/markdown';
+import { verifyApiKey } from '@/lib/auth';
 
 export async function POST(request: NextRequest) {
   try {
+    // Verify API key
+    if (!verifyApiKey(request)) {
+      return NextResponse.json(
+        { error: 'Unauthorized. Valid X-API-Key header required.' },
+        { status: 401 }
+      );
+    }
+
     const body = await request.json();
     const {
       title,
